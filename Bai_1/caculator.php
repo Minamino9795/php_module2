@@ -8,9 +8,9 @@
     B5: Hien thi ra ket qua
 */
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    echo '<pre>';
-    print_r($_REQUEST);
-    echo '</pre>';
+    // echo '<pre>';
+    // print_r($_REQUEST);
+    // echo '</pre>';
     $so_thu_nhat = $_REQUEST['number1'];
     $so_thu_hai = $_REQUEST['number2'];
     $toan_tu = $_REQUEST['toan_tu'];
