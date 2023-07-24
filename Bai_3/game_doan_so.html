@@ -1,0 +1,58 @@
+<!-- //<?php
+// Bắt đầu với khoảng số từ 1-100, tức là [1, 100].
+// Máy tính sẽ đoán một con số ở giữa khoảng số ban đầu là (min + max) / 2, trong trường hợp này là 50.
+// Người chơi sẽ trả lời một trong ba lựa chọn: "Chính xác", "Nhỏ hơn", hoặc "Lớn hơn".
+// Nếu người chơi chọn "Chính xác", trò chơi kết thúc và máy tính đã đoán đúng số.
+// Nếu người chơi chọn "Nhỏ hơn", thì khoảng số tiếp theo sẽ là [min, con số đoán - 1]. Máy tính sẽ chọn lại số ở giữa khoảng số mới này và tiếp tục bước 3.
+// Nếu người chơi chọn "Lớn hơn", thì khoảng số tiếp theo sẽ là [con số đoán + 1, max]. Máy tính sẽ chọn lại số ở giữa khoảng số mới này và tiếp tục bước 3.
+// Quá trình lặp lại bước 3-6 cho đến khi máy tính đoán đúng số hoặc khoảng số cần đoán thu hẹp đến mức không thể nào.
+// $so_nguyen= array();
+// for ($i=1; $i<=100; $i++){
+//     $so_nguyen[]=$i;
+// }
+// print_r($so_nguyen);
+// function binarySearchGame() {
+//     $left = 1;
+//     $right = 100;
+
+//     while ($left <= $right) {
+//         $mid = floor(($left + $right) / 2);
+
+//         // Đoán số và yêu cầu phản hồi từ người chơi
+//         echo "Có phải số bạn nghĩ là $mid không?\n";
+//         echo "1. Chính xác, đó là con số tôi đã nghĩ.\n";
+//         echo "2. Không, con số do tôi nghĩ ra nhỏ hơn.\n";
+//         echo "3. Không, con số do tôi nghĩ ra lớn hơn.\n";
+//     }
+// } -->
+<p id="so"></p>
+​
+<script>
+    var numbers = [];
+    for(var i = 1; i <= 100;i++){
+        numbers.push(i);
+    }
+    var L = 0;
+    var R = numbers.length - 1;
+    var M = Math.floor( (L+R) / 2 ) ;
+    document.getElementById('so').innerHTML = 'So do co phai la ' + numbers[M] + '?';
+​
+    function yes(){
+		alert('Thanks !')
+		location.reload();
+    }
+    function lon_hon(){
+        R = M - 1;
+        M = Math.floor( (L+R) / 2 ) ;
+        document.getElementById('so').innerHTML = 'So do co phai la ' + numbers[M] + '?';
+    }
+    function nho_hon(){
+        L = M + 1;
+        M = Math.floor( (L+R) / 2 ) ;
+        document.getElementById('so').innerHTML = 'So do co phai la ' + numbers[M] + '?';
+    }
+</script>
+​
+<button onclick="yes()"> Dung </button>
+<button onclick="lon_hon()"> Lon hon </button>
+<button onclick="nho_hon()"> Nho hon </button>
